@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito";
+}
+
+:root{
+    --background: #fffffe;
+    --secondary: #e3f6f5;
+    --tertiary: #bae8e8;
+    --button: #ffd803;
+    --button-hover: #ddbd0a;
+    --button-text-headline: #272343;
+    --paragraph: #2d334a;
+    --box-shadow: box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+body{
+    height: 100vh;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    background-color: var(--button);
+    color: var(--button-text-headline);
+    border: 0;
+    border-radius: 8px;
+}
+
+button:hover{
+    background-color: var(--button-hover);
+    color: var(--background);
+}
+
+form button{
+    width: 100%;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: none; 
+    place-items: center;
+    background-color: var(--tertiary);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+
+input{
+    border: 0;
+    border-radius: 8px;
+}
+
+h1{
+    color: var(--button-text-headline);
+    font-size: clamp(1.8rem, 2.5vw, 5rem);
+}
+
+
+
+/* Smartphones */
+@media screen and (max-width: 320px) {
+    header{
+        align-items: center;
+        padding: 2vh;
+    }
+
+    button{
+        height: 4vh;
+        font-size: 13px;
+        padding: 0.5rem;
+        font-weight: 500;
+    }
+    
+    main{
+        padding: 3vh;
+    }
+
+    form{    
+        grid-template-rows: repeat(4, 5.4vh);
+        padding: 3vh;
+    }
+
+    input{
+        height: 3vh;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 425px) and (min-width: 321px){
+    form{
+        width: 10vw;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) and (min-width: 426px){
+    h1{
+        color: green;
+    }
+}
+
+/* laptops */
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+    h1{
+        color: blue;
+    }
+}
+
