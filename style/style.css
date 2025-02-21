@@ -64,6 +64,12 @@ input{
     border-radius: 8px;
 }
 
+.radios{
+    font-size: clamp(12.4px, 2.5vw, 5rem);
+    display: flex;
+    align-items: center;
+}
+
 h1{
     color: var(--button-text-headline);
     font-size: clamp(1.8rem, 2.5vw, 5rem);
@@ -72,16 +78,15 @@ h1{
 
 
 /* Smartphones */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 326px)  {
     header{
         align-items: center;
         padding: 2vh;
     }
 
     button{
-        height: 4vh;
-        font-size: 13px;
-        padding: 0.5rem;
+        font-size: 12px;
+        padding: 5px;
         font-weight: 500;
     }
     
@@ -90,17 +95,26 @@ h1{
     }
 
     form{    
-        grid-template-rows: repeat(4, 5.4vh);
+        grid-template-rows: repeat(6, 5.4vh);
         padding: 3vh;
     }
 
+    .radios input:nth-of-type(2){
+        margin: 0 0 0 11vw;
+    }
+
+    .radios label:first-of-type,
+    .radios label:nth-of-type(2){
+        margin: 0 0 0 1.5vw;
+    }
+
     input{
-        height: 3vh;
+        height: 3.7vh;
         padding: 0.5rem;
     }
 }
 
-@media screen and (max-width: 425px) and (min-width: 321px){
+@media screen and (max-width: 425px) and (min-width: 327px){
     form{
         width: 10vw;
     }
