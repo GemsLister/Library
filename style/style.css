@@ -21,6 +21,7 @@
 
 body{
     height: 100vh;
+    border: 1px solid black;
 }
 
 
@@ -49,6 +50,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 3vh;
+    border: 1px solid black;
 }
 
 form{
@@ -75,6 +78,14 @@ h1{
     font-size: clamp(1.8rem, 2.5vw, 5rem);
 }
 
+.card-body{
+    font-size: clamp(0.85rem, 2.5vw, 5rem);
+    background-color: var(--tertiary);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid black;
+}
+
 
 
 /* Smartphones */
@@ -91,6 +102,9 @@ h1{
     }
     
     main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 3vh;
     }
 
@@ -111,6 +125,31 @@ h1{
     input{
         height: 3.7vh;
         padding: 0.5rem;
+    }
+
+    .card-container{
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+        border: 1px solid red;
+    }
+
+    .display-container{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        /* align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 1 1 0; */
+        padding: 2.5vh 0 0 7vw;
+        height: 18vh;
+        width: 68vw;
     }
 }
 
