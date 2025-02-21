@@ -16,10 +16,16 @@
     
     <main>
         <form action="" id="form">
-            <input type="text" placeholder="Title">
-            <input type="text" placeholder="Author">
-            <input type="number" placeholder="Pages">
-            <button>Submit</button>
+            <input type="text" placeholder="Title" id="title" required>
+            <input type="text" placeholder="Author" id="author" required>
+            <input type="number" placeholder="Pages" id="pages" required>
+            <div class="radios">
+                <input type="radio" id="read" value="read" name="read_status">
+                <label for="read" name="read_status">Read</label>
+                <input type="radio" id="not-read" value="read" name="read_status">
+                <label for="not-read" name="read_status">Not Read</label>
+            </div>
+            <button id="submit-btn">Submit</button>
             <button id="close-btn">Close</button>
         </form>
     </main>
