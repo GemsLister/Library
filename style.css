@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --poppins: 'Poppins', sans-serif;
+    --purple: #6246ea;
+    --paragraph: #2b2c34;
+    --white: #fffffe;
+    --secondary: #d1d1e9;
+}
+
+body{
+    height: 100dvh;
+    font-family: var(--poppins);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(1rem, 5vw, 1.3rem);
+    background-color: var(--secondary);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    display: none;
+    gap: 1rem;
+    padding: clamp(1rem, 5vw, 1.5rem);
+    width: clamp(18rem, 25vw, 19rem);
+    border-radius: 13px;
+    background-color: var(--secondary);
+}
+
+form input,
+form button{
+    border: 0;
+    border-radius: 3px;
+    font-size: clamp(12px, 2vw, 14px);
+    padding: 5px;
+}
+
+form button{
+    padding: clamp(5px, 2vw, 7px);
+    width: 100%;
+    border-radius: clamp(2px, 2vw, 5px);
+}
+
+section:first-child{
+    display: flex;
+    justify-content: center;
+    padding: clamp(13px, 10vw, 20px);
+    width: 100%;
+}
+
+header h1{
+    font-size: clamp(1rem, 6.5vw, 1.8em);
+}
+
+button{
+    border-radius: clamp(2px, 2vw, 12px);
+    background-color: var(--purple);
+    color: var(--white);
+    border: 0;
+    font-size: clamp(10px, 4vw, 15px);
+    width: clamp(100px, 8vw, 130px);
+    cursor: pointer;
+}
+
+.readContainer{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.readContainer input{
+    height: clamp(16px, 3vw, 17px);
+    width: clamp(16px, 3vw, 17px);
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 992px) {
+    
+}
