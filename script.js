@@ -66,9 +66,27 @@ function display(){
       const paragraph = document.createElement('p');
       paragraph.textContent = paragraphText;
 
-      line.append(label, paragraph);
+      line.append(label, paragraph, buttons);
       displaySection.appendChild(line);
     })
+
+    // buttons
+    const buttons = document.createElement('div');
+    buttons.classList.add('btnContainer');
+    buttons.style.cssText = 'display: flex; gap:10px';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('deleteBtn');
+    deleteBtn.textContent = 'Delete';
+
+    const editBtn = document.createElement('button');
+    editBtn.classList.add('editBtn');
+
+    if(!book.readStatusCheck)editBtn.textContent = 'Read';
+    else editBtn.textContent = 'Not Read';
+
+    // appends
+    buttons.append(deleteBtn, editBtn);
   })
 }
 
