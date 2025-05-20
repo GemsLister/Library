@@ -41,6 +41,10 @@ form{
     background-color: var(--secondary);
 }
 
+form h2{
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+}
+
 form input,
 form button{
     border: 0;
@@ -82,16 +86,41 @@ button{
     gap: 3px;
 }
 
+.readContainer p{
+    font-size: clamp(8px, 4.5vw, 14.8px);
+}
+
 .readContainer input{
     height: clamp(16px, 3vw, 17px);
     width: clamp(16px, 3vw, 17px);
 }
 
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--secondary);
+}
+
 .details{
     display: flex;
     flex-direction: column;
+    background-color: var(--secondary);
+    border-radius: 8px;
+    padding: clamp(12px, 8vw, 18px);
 }
 
-@media screen and (max-width: 992px) {
-    
+.buttons button{
+    padding: clamp(3px, 2vw, 5px);
+    border-radius: clamp(3px, 2vw, 5px);
+}
+
+#displayBooks{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, clamp(280px, 10vw, 300px));
+    gap: clamp(16px, 7vw, 18px);
+    width: calc(100dvw - 10%);
+    justify-content: center;
+    /* border: 1px solid red; */
 }

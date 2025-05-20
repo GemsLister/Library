@@ -20,7 +20,7 @@ function Book(titleVal, authorVal, pagesVal, readStatusCheck) {
   this.titleVal = titleVal;
   this.authorVal = authorVal;
   this.pagesVal = pagesVal;
-  this.readStatus = Boolean(readStatusCheck);
+  this.readStatusCheck = Boolean(readStatusCheck);
 }
 
 function addBookToLibrary(book) {
@@ -43,56 +43,87 @@ function createBook(){
 function display(){
   const displaySection = document.querySelector('#displayBooks');
   displaySection.textContent = '';
-
+  
   myLibrary.forEach((book, index)=>{
     const details = document.createElement('article');
-    details.classList.add('details')
+    details.classList.add('details');
     
-    const labelsValues = [
-      ['Title: ', book.titleVal],
-      ['Author: ', book.authorVal],
-      ['Pages: ', book.pagesVal],
-      ['Read Status: ', book.readStatusCheck ? 'Read' : 'Not Read'],
-    ]
+    // Title Container
+    const titleLabelVal = document.createElement('div');
+    titleLabelVal.classList.add('titleLabelVal');
+    titleLabelVal.style.cssText = 'display:flex; gap: 8px;'
+    const titleLabel = document.createElement('h4');
+    titleLabel.textContent = 'Title: ';
+    const titleText = document.createElement('p');
+    titleText.textContent = `${book.titleVal}`;
+    titleLabelVal.append(titleLabel, titleText);
 
-    labelsValues.forEach(([labelText, paragraphText])=>{
-      const line = document.createElement('div');
-      line.classList.add('line');
-      line.style.cssText = 'display: flex; gap: 8px';
+    // Author Container
+    const authorLabelVal = document.createElement('div');
+    authorLabelVal.classList.add('authorLabelVal');
+    authorLabelVal.style.cssText = 'display:flex; gap: 8px;'
+    const authorLabel = document.createElement('h4');
+    authorLabel.textContent = 'Author: ';
+    const authorText = document.createElement('p');
+    authorText.textContent = `${book.authorVal}`;
+    authorLabelVal.append(authorLabel, authorText);
 
-      const label = document.createElement('h4');
-      label.textContent = labelText;
-      
-      const paragraph = document.createElement('p');
-      paragraph.textContent = paragraphText;
+    // Pages Container
+    const pagesLabelVal = document.createElement('div');
+    pagesLabelVal.classList.add('pagesLabelVal');
+    pagesLabelVal.style.cssText = 'display:flex; gap: 8px;'
+    const pagesLabel = document.createElement('h4');
+    pagesLabel.textContent = 'Pages: ';
+    const pagesText = document.createElement('p');
+    pagesText.textContent = `${book.pagesVal}`;
+    pagesLabelVal.append(pagesLabel, pagesText);
 
-      line.append(label, paragraph, buttons);
-      displaySection.appendChild(line);
-    })
-
-    // buttons
+    // Read Status
+    const readLabelVal = document.createElement('div');
+    readLabelVal.classList.add('pagesLabelVal');
+    readLabelVal.style.cssText = 'display:flex; gap: 8px;'
+    const readLabel = document.createElement('h4');
+    readLabel.textContent = 'Pages: ';
+    const readText = document.createElement('p');
+    readText.textContent = `${book.readStatusCheck ? 'Read' : 'Not Read'}`;
+    readLabelVal.append(readLabel, readText);
+    console.log(book.readStatusCheck);
+    
+    // Buttons Container
     const buttons = document.createElement('div');
-    buttons.classList.add('btnContainer');
-    buttons.style.cssText = 'display: flex; gap:10px';
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('deleteBtn');
+    buttons.classList.add('buttons');
+    buttons.style.cssText = 'display: flex; gap: 8px';
+    // for delete button
+    let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
+    deleteBtn.classList.add('deleteBtn');
+    
+    // for toggle button
+    let readNotRead = document.createElement('button');
+    readNotRead.textContent = 'Toggle Read';
+    readNotRead.classList.add('readNotRead');
 
-    const editBtn = document.createElement('button');
-    editBtn.classList.add('editBtn');
-
-    if(!book.readStatusCheck)editBtn.textContent = 'Read';
-    else editBtn.textContent = 'Not Read';
-
-    // appends
-    buttons.append(deleteBtn, editBtn);
+    buttons.append(deleteBtn, readNotRead);
+    details.append(titleLabelVal, authorLabelVal, pagesLabelVal, readLabelVal, buttons);
+    displaySection.appendChild(details);
+    
+    // delete button function
+    deleteBtn.addEventListener('click', ()=>{
+      myLibrary.splice(index, 1);
+      display();
+    })
+    // read or not-read
+    readNotRead.addEventListener('click', ()=>{
+      book.readStatusCheck = !book.readStatusCheck;
+      if(book.readStatusCheck) readText.textContent = 'Read';
+      else readText.textContent = 'Not Read';
+    })
   })
 }
 
 submitBtn.addEventListener('click', (e)=>{
-  createBook();
   e.preventDefault();
+  createBook();
 })
 
 
