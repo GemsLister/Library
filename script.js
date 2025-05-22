@@ -1,5 +1,7 @@
 const addBookBtn = document.querySelector('#addBookBtn');
 const submitBtn = document.querySelector('#submitBtn');
+const xBtn = document.querySelector('.fa-square-xmark');
+const alertMsg = document.querySelector('.alert-message');
 
 const formElement = document.querySelector('form');
 const title = document.querySelector('#title');
@@ -14,6 +16,11 @@ const myLibrary = [];
 
 addBookBtn.addEventListener('click', ()=>{
     formElement.style.cssText = 'display: flex; flex-direction: column';
+})
+
+xBtn.addEventListener('click', () =>{
+  formElement.style.cssText = 'display: none';
+  alertMsg.style.cssText = 'display: none';
 })
 
 function Book(titleVal, authorVal, pagesVal, readStatusCheck) {
@@ -57,6 +64,8 @@ function display(){
     const titleText = document.createElement('p');
     titleText.textContent = `${book.titleVal}`;
     titleLabelVal.append(titleLabel, titleText);
+    console.log(book.titleVal);
+
 
     // Author Container
     const authorLabelVal = document.createElement('div');
@@ -67,6 +76,7 @@ function display(){
     const authorText = document.createElement('p');
     authorText.textContent = `${book.authorVal}`;
     authorLabelVal.append(authorLabel, authorText);
+    console.log(book.authorVal);
 
     // Pages Container
     const pagesLabelVal = document.createElement('div');
@@ -77,6 +87,7 @@ function display(){
     const pagesText = document.createElement('p');
     pagesText.textContent = `${book.pagesVal}`;
     pagesLabelVal.append(pagesLabel, pagesText);
+    console.log(book.pagesVal);
 
     // Read Status
     const readLabelVal = document.createElement('div');
@@ -123,8 +134,14 @@ function display(){
 
 submitBtn.addEventListener('click', (e)=>{
   e.preventDefault();
-  createBook();
+  if(title.value !== '' && !author.value !== '' && pages.value !== '') {
+    alertMsg.style.cssText = 'display: none;';
+    createBook();
+  } else {
+    alertMsg.style.cssText = 'display: flex;';
+  } 
 })
+
 
 
 
