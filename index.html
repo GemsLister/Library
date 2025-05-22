@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
     <header>
@@ -14,11 +15,19 @@
     <main>
         <!-- form section -->
         <section>
+            <div class="alert-message">
+                <h3>Please fill up inputs</h3>
+            </div>
+
             <form action="#">
-                <h2>Add new book</h2>
-                <input type="text" placeholder="Title" id="title" required>
-                <input type="text" placeholder="Author" id="author" required>
-                <input type="number" placeholder="Pages" id="pages" required>
+                <div class="upper">
+                    <h2>Add new book</h2>
+                    <i class="fa-solid fa-square-xmark"></i>
+                </div>
+                
+                <input type="text" placeholder="Title" id="title" value="" required>
+                <input type="text" placeholder="Author" id="author" value="" required>
+                <input type="number" placeholder="Pages" id="pages" value="" required>
                 <div class="readContainer">
                     <p>Have you read it? </p>
                     <input type="checkbox" id="readStatus" required>
